@@ -124,8 +124,8 @@ class JbuilderHandler
 
   def self.call(template)
     # this juggling is required to keep line numbers right in the error
+    debugger
     %{__already_defined = defined?(json); json||=JbuilderTemplate.new(self); #{template.source}
-debugger
       File.open('/tmp/hoge', 'w') do |f| f.write(json.target!) end
       json.target! unless (__already_defined && __already_defined != "method")}
   end
